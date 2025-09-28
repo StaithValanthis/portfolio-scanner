@@ -15,6 +15,9 @@ markets:
 
 holdings: []
 watchlist: []
+universes:
+  - auto:sp500
+  - auto:asx200
 
 signals:
   momentum: {enabled: true, min_12m_mom: 0.08, skip_last_month: true}

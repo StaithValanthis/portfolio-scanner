@@ -273,7 +273,7 @@ function App() {
       ${bt && html`
         <div class="mt-4">
           ${bt.summary && html`<div class="text-sm text-neutral-300 mb-2">
-            Avg CAGR: ${fmt.pct(bt.summary.avg_cagr/100)} · Avg MaxDD: ${fmt.pct(bt.summary.avg_max_dd/100)} · Avg Sharpe: ${bt.summary.avg_sharpe?.toFixed(2)} · Tickers: ${bt.summary.tickers}
+            Avg CAGR: ${fmt.pct(bt.summary.avg_cagr)} · Avg MaxDD: ${fmt.pct(bt.summary.avg_max_dd)} · Avg Sharpe: ${bt.summary.avg_sharpe?.toFixed(2)} · Tickers: ${bt.summary.tickers}
           </div>`}
           <div class="overflow-auto">
             <table class="min-w-full text-sm">
@@ -281,8 +281,8 @@ function App() {
               <tbody>${(bt.results||[]).map(r => html`
                 <tr class="border-t border-neutral-800">
                   <td class="p-2 font-mono">${r.ticker}</td>
-                  <td class="p-2 text-right">${fmt.pct(r.cagr/100)}</td>
-                  <td class="p-2 text-right">${fmt.pct(r.max_dd/100)}</td>
+                  <td class="p-2 text-right">${fmt.pct(r.cagr)}</td>
+                  <td class="p-2 text-right">${fmt.pct(r.max_dd)}</td>
                   <td class="p-2 text-right">${r.sharpe?.toFixed(2)}</td>
                   <td class="p-2 text-right">${r.trades}</td>
                 </tr>`)}
