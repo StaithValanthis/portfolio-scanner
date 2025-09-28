@@ -1,0 +1,42 @@
+base_currency: AUD
+markets:
+  au:
+    suffix: .AX
+    timezone: Australia/Brisbane
+    trading_days: [Mon, Tue, Wed, Thu, Fri]
+    open: "10:00"
+    close: "16:00"
+  us:
+    suffix: ""
+    timezone: America/New_York
+    trading_days: [Mon, Tue, Wed, Thu, Fri]
+    open: "09:30"
+    close: "16:00"
+
+holdings: []
+watchlist: []
+
+signals:
+  momentum: {enabled: true, min_12m_mom: 0.08, skip_last_month: true}
+  mean_reversion: {enabled: true, rsi_period: 14, rsi_buy_below: 30, rsi_sell_above: 70}
+  value: {enabled: true, max_pe: 28, max_pb: 5, peg_max: 2.0, ev_ebitda_max: 18}
+  dividend: {enabled: true, min_yield: 0.03, max_payout: 0.85}
+  quality: {enabled: true, min_roe: 0.12, min_gross_margin: 0.25, min_fcf_margin: 0.05, min_rev_cagr_3y: 0.05, max_net_debt_ebitda: 3.0}
+  technical_trend: {enabled: true, require_above_sma200: true, sma_fast: 50, sma_slow: 200}
+  news_sentiment: {enabled: true, lookback_days: 7, min_avg_sentiment: 0.1}
+  breakout52w: {enabled: true, near_high_pct: 0.05}
+
+risk:
+  position_cap_pct_nav: 0.1
+  sector_cap_pct_nav: 0.25
+  daily_new_buy_limit: 5
+  stop_loss_pct: 0.12
+  rebalance_band_pct: 0.25
+
+sell_rules:
+  below_sma200_pct: 0.03
+  valuation_stretch_pctile: 90
+  fundamental_deterioration: {rev_growth_drop_pp: 5, margin_drop_pp: 5}
+  news_shock_sentiment: -0.4
+
+ui: {table_rows: 200}
